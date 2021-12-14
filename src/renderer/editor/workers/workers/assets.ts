@@ -290,8 +290,8 @@ export default class AssetsWorker {
 			const scaling = Vector3.Zero();
 			d.getWorldMatrix().decompose(scaling, undefined, undefined);
 
-			const bMinimum = d._boundingInfo?.minimum.multiply(scaling);
-			const bMaximum = d._boundingInfo?.maximum.multiply(scaling);
+			const bMinimum = d.getBoundingInfo()?.minimum.multiply(scaling);
+			const bMaximum = d.getBoundingInfo()?.maximum.multiply(scaling);
 
 			if (!bMinimum || !bMaximum) { return; }
 

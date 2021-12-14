@@ -453,7 +453,7 @@ export function configurePostProcesses(scene: Scene, rootUrl: string = null): vo
 
     if (data.screenSpaceReflections?.json && !screenSpaceReflectionPostProcessRef) {
         // screenSpaceReflectionPostProcessRef = ScreenSpaceReflectionPostProcess._Parse(data.screenSpaceReflections.json, scene.activeCamera!, scene, "");
-        screenSpaceReflectionPostProcessRef = new ScreenSpaceReflectionPostProcess(data.screenSpaceReflections.json.name, scene, 1.0, scene.activeCamera!);
+        screenSpaceReflectionPostProcessRef = new ScreenSpaceReflectionPostProcess("ssr", scene, 1.0, scene.activeCamera!);
         screenSpaceReflectionPostProcessRef.step = data.screenSpaceReflections.json.step;
         screenSpaceReflectionPostProcessRef.strength = data.screenSpaceReflections.json.strength;
         screenSpaceReflectionPostProcessRef.threshold = data.screenSpaceReflections.json.threshold;
@@ -462,14 +462,14 @@ export function configurePostProcesses(scene: Scene, rootUrl: string = null): vo
         screenSpaceReflectionPostProcessRef.reflectionSamples = data.screenSpaceReflections.json.reflectionSamples;
         screenSpaceReflectionPostProcessRef.enableSmoothReflections = data.screenSpaceReflections.json.enableSmoothReflections;
     }
-
+    
     if (data.default && !defaultRenderingPipelineRef) {
         defaultRenderingPipelineRef = DefaultRenderingPipeline.Parse(data.default.json, scene, rootUrl);
         if (!data.default.enabled) {
             scene.postProcessRenderPipelineManager.detachCamerasFromRenderPipeline(defaultRenderingPipelineRef.name, scene.cameras);
         }
     }
-
+    
     if (data.motionBlur?.json) {
         // motionBlurPostProcessRef = MotionBlurPostProcess._Parse(data.motionBlur.json, scene.activeCamera!, scene, "");
         motionBlurPostProcessRef = new MotionBlurPostProcess(data.motionBlur.json.name, scene, 1.0, scene.activeCamera!);
