@@ -2,7 +2,7 @@ import { Nullable } from "../../../../shared/types";
 
 import {
 	Mesh, PointerInfo, PointerEventTypes, Matrix, Vector3, Quaternion,
-	AbstractMesh, StandardMaterial, DynamicTexture, Epsilon,
+	AbstractMesh, StandardMaterial, DynamicTexture, Epsilon, Space,
 } from "babylonjs";
 
 import { Editor } from "../../editor";
@@ -196,7 +196,7 @@ export class ThinInstancePainter extends AbstractPaintingTool {
 	
 					const normal = pick.getNormal(true, true);
 					if (normal) {
-						this._cloneMesh.lookAt(pick.pickedPoint.subtract(normal.negate()), 0, Math.PI * 0.5, 0);
+						this._cloneMesh.lookAt(pick.pickedPoint.subtract(normal.negate()), 0, Math.PI * 0.5, 0, Space.WORLD);
 					}
 				}
 	
