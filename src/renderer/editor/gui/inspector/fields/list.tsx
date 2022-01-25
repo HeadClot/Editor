@@ -116,7 +116,7 @@ export class InspectorList<T> extends AbstractFieldComponent<IInspectorListProps
             <div style={{ width: "100%", height: "25px" }}>
                 <div style={{ width: "30%", height: "25px", float: "left", borderLeft: "3px solid #2FA1D6", padding: "0 4px 0 5px", overflow: "hidden" }}>
                     <Tooltip content={this.props.label}>
-                        <span style={{ lineHeight: "30px", textAlign: "center", whiteSpace: "nowrap" }}>{this.props.label}</span>
+                        <span style={{ lineHeight: "28px", textAlign: "center", whiteSpace: "nowrap" }}>{this.props.label}</span>
                     </Tooltip>
                 </div>
                 <div

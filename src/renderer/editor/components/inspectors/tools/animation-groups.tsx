@@ -177,13 +177,17 @@ export class AnimationGroupComponent extends React.Component<IAnimationGroupProp
                 nodeData: t,
                 label: (
                     <div style={{ width: "100%" }}>
-                        <div style={{ width: "calc(50% - 10px)", float: "left" }}>
+                        <div
+                            style={{ width: "calc(50% - 10px)", float: "left", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }}
+                        >
                             {t.target ? (t.target.name ?? "Unnamed target") : "Undefined target"}
                         </div>
                         <div style={{ width: "20px", float: "left" }}>
                             <BPIcon icon="arrow-right" />
                         </div>
-                        <div style={{ width: "calc(50% - 10px)", float: "left" }}>
+                        <div
+                            style={{ width: "calc(50% - 10px)", float: "left", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }}
+                        >
                             {t.animation.name ?? "Unnamed animation"}
                         </div>
                     </div>
